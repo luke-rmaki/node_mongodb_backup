@@ -8,14 +8,16 @@ const database = async (db) => {
     client = await MongoClient.connect(uri, {
       native_parser: true,
       useUnifiedTopology: true,
+      useNewUrlParser: true,
     });
 
     const db = client.db(dbName);
     const data = await db.collection(collection).find({}).toArray();
     client.close();
-    return data;
+    return { data, collection };
   } catch (err) {
-    console.log(err.stack);
+    console.log(`There was an error`);
+    console.log(err);
   }
 };
 

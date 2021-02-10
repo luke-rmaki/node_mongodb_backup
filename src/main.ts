@@ -39,11 +39,11 @@ async function main() {
 
 console.clear();
 
-// cron.schedule("0 8 * * 1", () => {
-// cron.schedule("* * * * *", () => {
-console.log(`Running backup`);
-handleError(main)();
-// });
+// Runs every Monday at 8am
+cron.schedule(`0 8 * * 1`, () => {
+  console.log(`Running backup`);
+  handleError(main)();
+});
 
 const app = express();
 app.listen(3128);

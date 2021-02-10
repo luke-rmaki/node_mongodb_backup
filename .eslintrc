@@ -1,0 +1,7 @@
+{
+  "extends": ["rmaki"],
+  "ignorePatterns": "tscongif.json",
+  "rules": {
+    "no-console": "off"
+  }
+}
